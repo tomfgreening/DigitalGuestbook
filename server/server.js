@@ -28,3 +28,9 @@ app.listen(8080, ()=> {
 app.get("/", (request, response) {
     response.json({message: "Root route"});
 });
+
+const dbConnectionString = process.env.DATABASE_URL;
+
+const db = new pg.Pool({
+    connectionString: dbConnectionString,
+});
