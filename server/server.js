@@ -19,3 +19,12 @@ import pg from "pg"
 const app = express();
 app.use(cors());
 dotenv.config();
+app.use(express.json());
+
+app.listen(8080, ()=> {
+    console.log("Server running on port 8080");
+});
+
+app.get("/", (request, response) {
+    response.json({message: "Root route"});
+});
