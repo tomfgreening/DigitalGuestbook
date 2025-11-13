@@ -1,12 +1,37 @@
-// Express server functionality and interactiviety with the database will run from here. 
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv"
+import pg from "pg"
 
-//import packages
-//start or configure packages
-//tell server to use JSON
-//set up a port for the server by listening...
-//set up your database pool
-//create a root route
+const app = express();
+app.use(cors());
+dotenv.config();
+app.use(express.json());
 
-//=============================================
-//I need a route to READ data from the database
-//I need a route to CREATE new data in the database
+app.listen(8080, ()=> {
+    console.log("Server running on port 8080");
+});
+
+app.get("/", (request, response) => {
+    response.json({message: "Root route"});
+});                                                                                               //ROOT ROUTE
+
+const dbConnectionString = process.env.DATABASE_URL;
+
+const db = new pg.Pool({
+    connectionString: dbConnectionString,
+});
+
+app.get("/guestBookEntries", async (request, response) => {
+    const query = await db.query('SELECT * FROM aroundtheworldinaclickguestbook');
+    response.json(query.rows);
+});                                                                                              // READ ROUTE
+
+app.post("/newEntry", async (request, response) => {
+    const data = request.body.formValues;
+    const query = await db.query(
+        'INSERT INTO aroundtheworldinaclickguestbook (col2, col3, col4, col5) VALUES ($1, $2, $3, $4)',
+        [data.input1, data.input2, data.input3, data.input4]
+    );
+    await response.json(query);
+});                                                     // POST ROUTE (awaiting form to be built, client-side)
