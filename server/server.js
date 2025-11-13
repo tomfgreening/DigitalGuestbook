@@ -10,3 +10,12 @@
 //=============================================
 //I need a route to READ data from the database
 //I need a route to CREATE new data in the database
+
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv"
+import pg from "pg"
+
+const app = express();
+app.use(cors());
+dotenv.config();
