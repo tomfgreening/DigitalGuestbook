@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "node server",  //This is a QOL script to run the server in the terminal.
-    "seed": "node seed", // Another QOL script.
+    "dev": "node server",
+    "seed": "node seed",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,5 +17,5 @@
     "express": "^5.1.0",
     "pg": "^8.16.3"
   },
-"type": "module" //This is added in so we can use ES6 Javascript.
+  "type": "module"
 }

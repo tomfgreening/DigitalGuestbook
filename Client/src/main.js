@@ -16,7 +16,7 @@ function handleSubmit(event) {
   alert("Guestbook successfully signed!");
 
 //  local host address needs to be changed when deploying project 
-  fetch("http:localhost:8080/newEntry", {
+  fetch("http://localhost:8080/newEntry", {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
