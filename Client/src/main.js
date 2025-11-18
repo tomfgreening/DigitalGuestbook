@@ -1,7 +1,16 @@
 // This file will handle the data from the form
 
 //Select the form from the DOM
+const guestbookForm = document.getElementById("guestbookForm");
 
-//We need to build an event that handles the data from the form
+//event listener                       
+guestbookForm.addEventListener("submit", handleSubmit);
+
 //event handler
-//event listener
+function handleSubmit(event) {
+    event.preventDefault();
+    const formData = new FormData(guestbookForm);
+    console.log(formData);
+    const formValues = Object.fromEntries(formData)
+    console.log(formValues)
+}
