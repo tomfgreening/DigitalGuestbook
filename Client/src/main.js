@@ -11,6 +11,7 @@ function handleSubmit(event) {
     event.preventDefault();
     const formData = new FormData(guestbookForm);
     console.log(formData);
-    const formValues = Object.fromEntries(formData)
-    console.log(formValues)
+    const formValues = Object.fromEntries(formData);
+    console.log(formValues);
+    alert("Guestbook successfully signed!");
 }
