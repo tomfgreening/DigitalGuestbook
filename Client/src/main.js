@@ -1,7 +1,26 @@
 // This file will handle the data from the form
 
 //Select the form from the DOM
+const guestbookForm = document.getElementById("guestbookForm");
 
-//We need to build an event that handles the data from the form
-//event handler
 //event listener
+guestbookForm.addEventListener("submit", handleSubmit);
+
+//event handler
+function handleSubmit(event) {
+  event.preventDefault();
+  const formData = new FormData(guestbookForm);
+  console.log(formData);
+  const formValues = Object.fromEntries(formData);
+  console.log(formValues);
+  alert("Guestbook successfully signed!");
+
+//  local host address needs to be changed when deploying project 
+  fetch("http://localhost:8080/newEntry", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify({formValues}),
+  });
+}

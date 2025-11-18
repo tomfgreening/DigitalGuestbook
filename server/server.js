@@ -34,4 +34,4 @@ app.post("/newEntry", async (request, response) => {
         [data.input1, data.input2, data.input3, data.input4]
     );
     await response.json(query);
-});                                                     // POST ROUTE (awaiting form to be built, client-side)
+});
