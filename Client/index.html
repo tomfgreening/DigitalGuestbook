@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Around the world in a click!</title>
   </head>
@@ -11,16 +11,37 @@
     <h1>Stamp your digital passport!</h1>
     <form id="guestbookForm">
       <label for="name">Your name here </label>
-      <input type="text" id="nameInput" name="name" placeholder="Write your name here">
+      <input
+        type="text"
+        id="nameInput"
+        name="name"
+        placeholder="Write your name here"
+      />
       <label for="date">Today's date here </label>
-      <input type="date" id="dateInput" name="date" required> 
+      <input type="date" id="dateInput" name="date" required />
       <label for="country">Country you are posting from here </label>
-      <input type="text" id="countryInput" name="country" placeholder="Write which country you are posting from here" required>
+      <input
+        type="text"
+        id="countryInput"
+        name="country"
+        placeholder="Write which country you are posting from here"
+        required
+      />
       <label for="message">Write your message here </label>
-      <input type="text" id="messageInput" name="message" placeholder="Write your message here" required>
-<button type="submit">Submit your guestbook entry</button>
+      <input
+        type="text"
+        id="messageInput"
+        name="message"
+        placeholder="Write your message here"
+        required
+      />
+      <button type="submit">Submit your guestbook entry</button>
     </form>
+    <div class="allGuestbookEntriesContainer" id="allGuestbookEntriesContainer">
+      This is some place-holder text. FETCH-ed guestbook entries from the
+      database will be displayed in this div.
+    </div>
     <div id="app"></div>
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
