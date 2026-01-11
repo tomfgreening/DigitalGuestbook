@@ -25,11 +25,10 @@ function handleSubmit(event) {
   });
 }
 
-async function displayGuestbookEntries() {
-  const response = await fetch("http://localhost:8080/guestBookEntries");
-  console.log(response);
-  const json = await response.json();
-  console.log(json);
+async function getGuestbookEntries() {
+  const storedGuestbookEntries = await fetch("http://localhost:8080/guestBookEntries");
+  console.log(storedGuestbookEntries);
+  const guestbookEntriesData = await storedGuestbookEntries.json();
+  console.log(guestbookEntriesData);
 }
-
-displayGuestbookEntries();
+getGuestbookEntries();
