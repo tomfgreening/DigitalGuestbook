@@ -1,7 +1,10 @@
 // This file will handle the data from the form
 
-//Select the form from the DOM
+//Target the form from the DOM
 const guestbookForm = document.getElementById("guestbookForm");
+
+//Target the guestbook entries container in the DOM
+const allGuestbookEntriesContainer = document.getElementById("allGuestbookEntriesContainer");
 
 //event listener
 guestbookForm.addEventListener("submit", handleSubmit);
