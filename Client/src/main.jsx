@@ -24,3 +24,12 @@ function handleSubmit(event) {
     body: JSON.stringify({formValues}),
   });
 }
+
+async function displayGuestbookEntries() {
+  const response = await fetch("http://localhost:8080/guestBookEntries");
+  console.log(response);
+  const json = await response.json();
+  console.log(json);
+}
+
+displayGuestbookEntries();
