@@ -37,7 +37,8 @@ async function getGuestbookEntries() {
   console.log(storedGuestbookEntries);
   const guestbookEntriesData = await storedGuestbookEntries.json();
   console.log(guestbookEntriesData);
-  guestbookEntriesData.forEach(function(item) {
+  guestbookEntriesData.forEach(function (item) {
+    console.log(item);
     // forEach item in the guestbookEntriesData array, perform a function and assign each entry in the database as 'item'.
     const itemDiv = document.createElement("div");
     // the function will create a new DIV element for each item.
@@ -46,5 +47,5 @@ async function getGuestbookEntries() {
     allGuestbookEntriesContainer.appendChild(itemDiv);
     // appends the created div element onto the parent element.
   });
-  }
+}
 getGuestbookEntries();
