@@ -42,7 +42,7 @@ async function getGuestbookEntries() {
     // forEach item in the guestbookEntriesData array, perform a function and assign each entry in the database as 'item'.
     const itemDiv = document.createElement("div");
     // the function will create a new DIV element for each item.
-    itemDiv.textContent = item.name + item.country + item.your_message;
+    itemDiv.textContent = item.name + ", " + "from" + " " + item.country + "says, "+ item.your_message;
     // put each item into the created div as text.
     allGuestbookEntriesContainer.appendChild(itemDiv);
     // appends the created div element onto the parent element.
