@@ -18,7 +18,12 @@
         placeholder="Write your name here"
       />
       <label for="date">Today's date here </label>
-      <input type="date" id="dateInput" name="date" required />
+      <input 
+        type="date"
+        id="dateInput" 
+        name="date" 
+        required 
+        />
       <label for="country">Country you are posting from here </label>
       <input
         type="text"
@@ -35,6 +40,13 @@
         placeholder="Write your message here"
         required
       />
+      <label for="image"> Upload a photo here </label>
+      <input 
+        type="file"
+        id="imageInput"
+        name="image"
+        accept="image/jpeg, image/jpg" 
+        />
       <button type="submit">Submit your guestbook entry</button>
     </form>
     <div class="allGuestbookEntriesContainer" id="allGuestbookEntriesContainer">
