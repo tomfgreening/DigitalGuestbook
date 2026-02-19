@@ -5,5 +5,6 @@
 //     name VARCHAR (167),
 //     date DATE NOT NULL,
 //     country CHAR (167) NOT NULL,
-//     your_message TEXT
+//     your_message TEXT,
+//     photo_url TEXT
 //   );

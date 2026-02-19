@@ -1,4 +1,9 @@
-// This file will handle the data from the form
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 
 //Target the form from the DOM
 const guestbookForm = document.getElementById("guestbookForm");
@@ -12,11 +17,24 @@ const allGuestbookEntriesContainer = document.getElementById(
 guestbookForm.addEventListener("submit", handleSubmit);
 
 //event handler
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(guestbookForm);
   console.log(formData);
   const formValues = Object.fromEntries(formData);
+  const imageFile = formData.get("image");
+  // picking out the uploaded image file from the object.
+  const filePath = `guestbook/${Date.now()}-${imageFile.name}`;
+  // creating a unique filename for each upload, using the current date and time + the original name fo the file at the time of upload.
+  const {data, error} = await supabase.storage.from("guestbookimagebucket").upload(filePath, imageFile);
+  if (error) {
+    console.error("Upload failed, please try again:", error)
+    return;
+  }
+  const imageUrl = supabase.storage.from("guestbookimagebucket").getPublicUrl(data.path).data.publicUrl;
+  // uploading image data to Supabase storage bucket.
+  
+  formValues.imageUrl = imageUrl;
   console.log(formValues);
   alert("Guestbook successfully signed!");
 
@@ -42,7 +60,14 @@ async function getGuestbookEntries() {
     // forEach item in the guestbookEntriesData array, perform a function and assign each entry in the database as 'item'.
     const itemDiv = document.createElement("div");
     // the function will create a new DIV element for each item.
-    itemDiv.textContent = item.name + ", " + "from" + " " + item.country + "says, "+ item.your_message;
+    itemDiv.textContent =
+      item.name +
+      ", " +
+      "from" +
+      " " +
+      item.country +
+      "says, " +
+      item.your_message;
     // put each item into the created div as text.
     allGuestbookEntriesContainer.appendChild(itemDiv);
     // appends the created div element onto the parent element.
