@@ -10,20 +10,20 @@ const allGuestbookEntriesContainer = document.getElementById(
 guestbookForm.addEventListener("submit", handleSubmit);
 
 //event handler
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(guestbookForm);
   console.log(formData);
   const imageFile = formData.get("image");
   // picking out the uploaded image file from the object.
-  const filePath = `guestbook/${date.now()}-${imageFile.name}`;
+  const filePath = `guestbook/${Date.now()}-${imageFile.name}`;
   // creating a unique filename for each upload, using the current date and time + the original name fo the file at the time of upload.
-  supabase.storage.from("guestbookimages").upload(filePath, imageFile);
+  await supabase.storage.from("guestbookimagebucket").upload(filePath, imageFile);
   // uploading image data to Supabase storage bucket.
   const formValues = Object.fromEntries(formData);
   console.log(formValues);
   alert("Guestbook successfully signed!");
-  
+
   //  local host address needs to be changed when deploying project
   fetch("http://localhost:8080/newEntry", {
     method: "POST",
