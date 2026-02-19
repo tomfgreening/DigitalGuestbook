@@ -1,3 +1,10 @@
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
+
 //Target the form from the DOM
 const guestbookForm = document.getElementById("guestbookForm");
 
@@ -14,13 +21,20 @@ async function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(guestbookForm);
   console.log(formData);
+  const formValues = Object.fromEntries(formData);
   const imageFile = formData.get("image");
   // picking out the uploaded image file from the object.
   const filePath = `guestbook/${Date.now()}-${imageFile.name}`;
   // creating a unique filename for each upload, using the current date and time + the original name fo the file at the time of upload.
-  await supabase.storage.from("guestbookimagebucket").upload(filePath, imageFile);
+  const {data, error} = await supabase.storage.from("guestbookimagebucket").upload(filePath, imageFile);
+  if (error) {
+    console.error("Upload failed, please try again:", error)
+    return;
+  }
+  const imageUrl = supabase.storage.from("guestbookimagebucket").getPublicUrl(data.path).data.publicUrl;
   // uploading image data to Supabase storage bucket.
-  const formValues = Object.fromEntries(formData);
+  
+  formValues.imageUrl = imageUrl;
   console.log(formValues);
   alert("Guestbook successfully signed!");
 
