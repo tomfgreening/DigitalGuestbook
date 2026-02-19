@@ -1,5 +1,3 @@
-// This file will handle the data from the form
-
 //Target the form from the DOM
 const guestbookForm = document.getElementById("guestbookForm");
 
@@ -16,10 +14,16 @@ function handleSubmit(event) {
   event.preventDefault();
   const formData = new FormData(guestbookForm);
   console.log(formData);
+  const imageFile = formData.get("image");
+  // picking out the uploaded image file from the object.
+  const filePath = `guestbook/${date.now()}-${imageFile.name}`;
+  // creating a unique filename for each upload, using the current date and time + the original name fo the file at the time of upload.
+  supabase.storage.from("guestbookimages").upload(filePath, imageFile);
+  // uploading image data to Supabase storage bucket.
   const formValues = Object.fromEntries(formData);
   console.log(formValues);
   alert("Guestbook successfully signed!");
-
+  
   //  local host address needs to be changed when deploying project
   fetch("http://localhost:8080/newEntry", {
     method: "POST",
@@ -42,7 +46,14 @@ async function getGuestbookEntries() {
     // forEach item in the guestbookEntriesData array, perform a function and assign each entry in the database as 'item'.
     const itemDiv = document.createElement("div");
     // the function will create a new DIV element for each item.
-    itemDiv.textContent = item.name + ", " + "from" + " " + item.country + "says, "+ item.your_message;
+    itemDiv.textContent =
+      item.name +
+      ", " +
+      "from" +
+      " " +
+      item.country +
+      "says, " +
+      item.your_message;
     // put each item into the created div as text.
     allGuestbookEntriesContainer.appendChild(itemDiv);
     // appends the created div element onto the parent element.
