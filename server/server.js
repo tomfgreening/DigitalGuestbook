@@ -26,11 +26,11 @@ app.get("/guestBookEntries", async (request, response) => {
 }); // READ ROUTE
 
 app.post("/newEntry", async (request, response) => {
-  const data = request.body.formValues;
+  const data = request.body;
   const query = await db.query(
     "INSERT INTO aroundtheworldinaclickguestbook (name, date, country, your_message, photo_url) VALUES ($1, $2, $3, $4, $5)",
-    [data.name, data.date, data.country, data.message, data.photo_url],
-    console.log(data)
+    [data.name, data.date, data.country, data.message, data.imageUrl]
   );
+  console.log(data);
   await response.json(query.rows);
 });

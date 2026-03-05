@@ -44,7 +44,7 @@ async function handleSubmit(event) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ formValues }),
+    body: JSON.stringify(formValues),
   });
 }
 
