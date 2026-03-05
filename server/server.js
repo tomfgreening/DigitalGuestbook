@@ -28,8 +28,8 @@ app.get("/guestBookEntries", async (request, response) => {
 app.post("/newEntry", async (request, response) => {
   const data = request.body.formValues;
   const query = await db.query(
-    "INSERT INTO aroundtheworldinaclickguestbook (name, date, country, your_message) VALUES ($1, $2, $3, $4)",
-    [data.name, data.date, data.country, data.message],
+    "INSERT INTO aroundtheworldinaclickguestbook (name, date, country, your_message, photo_url) VALUES ($1, $2, $3, $4, $5)",
+    [data.name, data.date, data.country, data.message, data.photo_url],
     console.log(data)
   );
   await response.json(query.rows);
