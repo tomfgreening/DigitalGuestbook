@@ -26,14 +26,18 @@ async function handleSubmit(event) {
   // picking out the uploaded image file from the object.
   const filePath = `guestbook/${Date.now()}-${imageFile.name}`;
   // creating a unique filename for each upload, using the current date and time + the original name fo the file at the time of upload.
-  const {data, error} = await supabase.storage.from("guestbookimagebucket").upload(filePath, imageFile);
+  const { data, error } = await supabase.storage
+    .from("guestbookimagebucket")
+    .upload(filePath, imageFile);
   if (error) {
-    console.error("Upload failed, please try again:", error)
+    console.error("Upload failed, please try again:", error);
     return;
   }
-  const imageUrl = supabase.storage.from("guestbookimagebucket").getPublicUrl(data.path).data.publicUrl;
+  const imageUrl = supabase.storage
+    .from("guestbookimagebucket")
+    .getPublicUrl(data.path).data.publicUrl;
   // uploading image data to Supabase storage bucket.
-  
+
   formValues.imageUrl = imageUrl;
   console.log(formValues);
   alert("Guestbook successfully signed!");
@@ -44,7 +48,7 @@ async function handleSubmit(event) {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({ formValues }),
+    body: JSON.stringify(formValues),
   });
 }
 
@@ -56,10 +60,15 @@ async function getGuestbookEntries() {
   const guestbookEntriesData = await storedGuestbookEntries.json();
   console.log(guestbookEntriesData);
   guestbookEntriesData.forEach(function (item) {
-    console.log(item);
     // forEach item in the guestbookEntriesData array, perform a function and assign each entry in the database as 'item'.
+    console.log(item);
+    // log 'item' in the console 
     const itemDiv = document.createElement("div");
-    // the function will create a new DIV element for each item.
+    // the function will create a new DIV element for each entry in 'item'.
+    const itemImg = document.createElement("img");
+    // the function will create and image element.
+    itemImg.src = item.photo_url;
+    //the source of the image element will come from the photo_url.
     itemDiv.textContent =
       item.name +
       ", " +
@@ -68,7 +77,9 @@ async function getGuestbookEntries() {
       item.country +
       "says, " +
       item.your_message;
-    // put each item into the created div as text.
+    // put each item into the created div.
+    itemDiv.appendChild(itemImg);  
+    // append the created image element to the item div.
     allGuestbookEntriesContainer.appendChild(itemDiv);
     // appends the created div element onto the parent element.
   });
