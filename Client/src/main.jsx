@@ -65,8 +65,12 @@ async function getGuestbookEntries() {
     // log 'item' in the console
     const itemDiv = document.createElement("div");
     // the function will create a new DIV element for each entry in 'item'.
+    itemDiv.className.add("entry");
+    // the function will add a CSS class
     const itemImg = document.createElement("img");
     // the function will create and image element.
+    itemImg.className.add("entryImage");
+    // the funtion will add a CSS class
     itemImg.src = item.photo_url;
     //the source of the image element will come from the photo_url.
     itemDiv.textContent =
