@@ -4,10 +4,43 @@
   box-sizing: border-box;
 }
 
-h1 {
-  color: aqua;
+body {
+  background-color: bisque;
 }
 
-body {
-  background-color: brown;
+.projectTitle{
+
 }
+
+.guestbookForm {
+
+}
+
+.yourNameHere{
+
+}
+
+.todaysDateHere {
+
+}
+
+.countryYouArePostingFromHere{
+
+}
+
+.writeYourMessageHere {
+
+}
+
+.uploadAPhotoHere{
+
+}
+
+.submitYourGuestbookEntry {
+
+}
+
+.allGuestbookEntriesContainer {
+  
+}
+
