@@ -8,23 +8,23 @@
     <title>Around the world in a click!</title>
   </head>
   <body>
-    <h1>Stamp your digital passport!</h1>
-    <form id="guestbookForm">
-      <label for="name">Your name here </label>
+    <h1 id="projectTitle" class="projectTitle">Stamp your digital passport!</h1>
+    <form id="guestbookForm" class="guestbookForm">
+      <label for="name" id="yourNameHere" class="yourNameHere">Your name here </label>
       <input
         type="text"
         id="nameInput"
         name="name"
         placeholder="Write your name here"
       />
-      <label for="date">Today's date here </label>
+      <label for="date" id="todaysDateHere" class="todaysDateHere">Today's date here </label>
       <input 
         type="date"
         id="dateInput" 
         name="date" 
         required 
         />
-      <label for="country">Country you are posting from here </label>
+      <label for="country" id="countryYouArePostingFromHere" class="countryYouArePostingFromHere">Country you are posting from here </label>
       <input
         type="text"
         id="countryInput"
@@ -32,7 +32,7 @@
         placeholder="Write which country you are posting from here"
         required
       />
-      <label for="message">Write your message here </label>
+      <label for="message" id="writeYourMessageHere" class="writeYourMessageHere">Write your message here </label>
       <input
         type="text"
         id="messageInput"
@@ -40,16 +40,16 @@
         placeholder="Write your message here"
         required
       />
-      <label for="image">Upload a photo here </label>
+      <label for="image" id="uploadAPhotoHere" class="uploadAPhotoHere">Upload a photo here </label>
       <input 
         type="file"
         id="imageInput"
         name="image"
         accept="image/jpeg, image/jpg" 
         />
-      <button type="submit">Submit your guestbook entry</button>
+      <button type="submit" id="submitYourGuestbookEntry" class="submitYourGuestbookEntry">Submit your guestbook entry</button>
     </form>
-    <div class="allGuestbookEntriesContainer" id="allGuestbookEntriesContainer">
+    <div id="allGuestbookEntriesContainer" class="allGuestbookEntriesContainer">
     </div>
     <div id="app"></div>
     <script type="module" src="/src/main.jsx"></script>

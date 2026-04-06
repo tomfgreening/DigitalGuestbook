@@ -1,0 +1,52 @@
+* {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+}
+
+.projectTitle {
+  text-align: center;
+}
+
+.guestbookForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.yourNameHere {
+  text-align: center;
+}
+
+.todaysDateHere {
+  text-align: center;
+}
+
+.countryYouArePostingFromHere {
+  text-align: center;
+}
+
+.writeYourMessageHere {
+  text-align: center;
+}
+
+.uploadAPhotoHere {
+  text-align: center;
+}
+
+.submitYourGuestbookEntry {
+  align-self: center;
+}
+
+.allGuestbookEntriesContainer {
+}
+
+.entry {
+  text-align: center;
+}
+
+.entry img {
+  width: 100%;
+}
