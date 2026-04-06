@@ -5,49 +5,48 @@
 }
 
 body {
-  background-color: bisque;
 }
 
-.projectTitle{
-
+.projectTitle {
+  text-align: center;
 }
 
 .guestbookForm {
-
+  display: flex;
+  flex-direction: column;
 }
 
-.yourNameHere{
-
+.yourNameHere {
+  text-align: center;
 }
 
 .todaysDateHere {
-
+  text-align: center;
 }
 
-.countryYouArePostingFromHere{
-
+.countryYouArePostingFromHere {
+  text-align: center;
 }
 
 .writeYourMessageHere {
-
+  text-align: center;
 }
 
-.uploadAPhotoHere{
-
+.uploadAPhotoHere {
+  text-align: center;
 }
 
 .submitYourGuestbookEntry {
-
+  align-self: center;
 }
 
 .allGuestbookEntriesContainer {
-  
 }
 
-.entry{
-
+.entry {
+  text-align: center;
 }
 
-.entryImage{
-  
+.entry img {
+  width: 100%;
 }
