@@ -13,10 +13,12 @@ body {
 }
 .guestbookForm {
   display: flex;
-  flex-direction: column;
-  max-width: 500px;
+  flex-direction: row;
+  width: 100%;
+  max-width: 12000px;
   margin: 0 auto 30 px;
   gap: 10px;
+  align-items:center
 }
 
 .guestbookForm input {
