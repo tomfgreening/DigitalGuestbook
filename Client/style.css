@@ -9,16 +9,19 @@ body {
 
 .projectTitle {
   text-align: center;
+  margin: 20px 0;
 }
-
 .guestbookForm {
   display: flex;
   flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto 30 px;
+  gap: 10px;
 }
 
 .yourNameHere {
   text-align: center;
-}
+} 
 
 .todaysDateHere {
   text-align: center;
@@ -50,3 +53,5 @@ body {
 .entry img {
   width: 100%;
 }
+
+
