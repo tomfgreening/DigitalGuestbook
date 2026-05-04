@@ -24,28 +24,13 @@ body {
   border: 1px solid #ccc;
 }
 
-.yourNameHere {
-  text-align: center;
-} 
-
-.todaysDateHere {
-  text-align: center;
-}
-
-.countryYouArePostingFromHere {
-  text-align: center;
-}
-
-.writeYourMessageHere {
-  text-align: center;
-}
-
-.uploadAPhotoHere {
-  text-align: center;
-}
-
-.submitYourGuestbookEntry {
-  align-self: center;
+.submitYourGuestbookEntry{ 
+    align-self: center;
+    padding: 10px 15px;
+    border: 1px solid red;
+    background: white;
+    color: red;
+    cursor: pointer;
 }
 
 .allGuestbookEntriesContainer {
