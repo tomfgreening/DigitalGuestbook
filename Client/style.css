@@ -9,44 +9,60 @@ body {
 
 .projectTitle {
   text-align: center;
+  margin: 20px 0;
 }
-
 .guestbookForm {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  width: 100%;
+  max-width: 12000px;
+  margin: 0 auto 30 px;
+  gap: 10px;
+  align-items:center
 }
 
-.yourNameHere {
-  text-align: center;
-}
-
-.todaysDateHere {
-  text-align: center;
-}
-
-.countryYouArePostingFromHere {
-  text-align: center;
-}
-
-.writeYourMessageHere {
-  text-align: center;
-}
-
-.uploadAPhotoHere {
-  text-align: center;
+.guestbookForm input {
+  padding: 8px;
+  border: 1px solid #ccc;
 }
 
 .submitYourGuestbookEntry {
   align-self: center;
+  padding: 10px 15px;
+  border: 1px solid red;
+  background: white;
+  color: red;
+  cursor: pointer;
 }
 
 .allGuestbookEntriesContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 20px;
 }
 
 .entry {
-  text-align: center;
+  background: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e0e0e0;
 }
 
 .entry img {
   width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .allGuestbookEntriesContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .allGuestbookEntriesContainer {
+    grid-template-columns: 1fr;
+  }
 }
