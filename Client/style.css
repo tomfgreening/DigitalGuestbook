@@ -28,6 +28,7 @@ body {
   align-items: center;
   padding: 20px ;
   font-size: medium;
+  
 }
 
 .guestbookForm input {
@@ -35,6 +36,8 @@ body {
   border: 1px solid #d9e2ec;
   border-radius: 4px;
   flex: 1;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  
 }
 
 .submitYourGuestbookEntry {
@@ -73,6 +76,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 30px;
+  
 }
 
 .entry {
@@ -81,6 +85,10 @@ body {
   flex-direction: column;
   border: 3px solid #d9e2ec;
   border-radius: 6px;
+  box-shadow:
+  rgba(255, 153, 0, 0.687) -5px 5px,
+  rgba(255, 119, 0, 0.25) -10px 10px,
+  rgba(255, 119, 0, 0.15) -15px 15px;
 }
 
 .entry img {
