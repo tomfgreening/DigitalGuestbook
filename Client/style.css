@@ -5,7 +5,7 @@
 }
 
 body {
-  background: radial-gradient(circle, #2E86AB,#56CCF2, #B2FEFA);
+  background: radial-gradient(circle, #2e86ab, #56ccf2, #b2fefa);
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -26,9 +26,8 @@ body {
   margin: auto;
   gap: 15px;
   align-items: center;
-  padding: 20px ;
+  padding: 20px;
   font-size: medium;
-  
 }
 
 .guestbookForm input {
@@ -36,20 +35,15 @@ body {
   border: 1px solid #d9e2ec;
   border-radius: 4px;
   flex: 1;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .submitYourGuestbookEntry {
-  background-image: linear-gradient(
-    -180deg,
-    #f15501,
-    #D97706
-  );
+  background-image: linear-gradient(-180deg, #f15501, #d97706);
   border-radius: 6px;
-  box-shadow:
-    rgba(0, 0, 0, 0.1) 0 2px 4px;
-  color: #FFFFFF;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
   cursor: pointer;
   display: block;
   font-family: Arial, Helvetica, sans-serif;
@@ -62,9 +56,7 @@ body {
   margin: 20px auto 0;
   width: 250px;
   border: none;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .submitYourGuestbookEntry:hover {
@@ -76,19 +68,16 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 30px;
-  
 }
 
 .entry {
-  background: #FFFFFF;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
   border: 3px solid #d9e2ec;
   border-radius: 6px;
-  box-shadow:
-  rgba(255, 153, 0, 0.687) -5px 5px,
-  rgba(255, 119, 0, 0.25) -10px 10px,
-  rgba(255, 119, 0, 0.15) -15px 15px;
+  box-shadow: rgba(255, 153, 0, 0.687) -5px 5px,
+    rgba(255, 119, 0, 0.25) -10px 10px, rgba(255, 119, 0, 0.15) -15px 15px;
 }
 
 .entry img {
@@ -108,5 +97,3 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
-
