@@ -94,13 +94,56 @@ body {
 }
  
 @media (max-width: 900px) {
+
+  .projectTitle {
+    font-size: 2.3rem;
+  }
+
+  .guestbookForm {
+    justify-content: center;
+  }
+
   .allGuestbookEntriesContainer {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .entry{
+    width: 100%;
   }
 }
 
 @media (max-width: 600px) {
+   .projectTitle {
+    font-size: 1.7rem;
+    padding: 0 10px;
+  }
+
+  .guestbookForm {
+    flex-direction: column;
+    align-items: justify;
+    padding: 10px;
+  }
+
+  .guestbookForm input {
+    width: 100%;
+  }
+
+  .submitYourGuestbookEntry {
+    width: 100%;
+  }
+
   .allGuestbookEntriesContainer {
     grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .entry {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .entry img {
+    max-height: 400px;
   }
 }
