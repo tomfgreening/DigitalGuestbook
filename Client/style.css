@@ -5,48 +5,86 @@
 }
 
 body {
+  background: radial-gradient(circle, #2e86ab, #56ccf2, #b2fefa);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .projectTitle {
   text-align: center;
   margin: 20px 0;
+  font-family: Georgia, serif;
+  color: whitesmoke;
+  font-size: 3rem;
 }
+
 .guestbookForm {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
-  max-width: 12000px;
-  margin: 0 auto 30 px;
-  gap: 10px;
-  align-items:center
+  max-width: 1400px;
+  margin: auto;
+  gap: 15px;
+  align-items: center;
+  padding: 20px;
+  font-size: medium;
 }
 
 .guestbookForm input {
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid #d9e2ec;
+  border-radius: 4px;
+  flex: 1;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .submitYourGuestbookEntry {
-  align-self: center;
-  padding: 10px 15px;
-  border: 1px solid red;
-  background: white;
-  color: red;
+  background-image: linear-gradient(-180deg, #f15501, #d97706);
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+  color: #ffffff;
   cursor: pointer;
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  height: 45px;
+  line-height: 45px;
+  text-align: center;
+  padding: 0 25px;
+  margin: 20px auto 0;
+  width: 250px;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.submitYourGuestbookEntry:hover {
+  box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
 }
 
 .allGuestbookEntriesContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding: 20px;
+  padding: 30px;
 }
 
 .entry {
-  background: #f3f3f3;
+  background: #fffaf3;
+  color: #2d3748;
+  opacity: 95%;
   display: flex;
   flex-direction: column;
-  border: 1px solid #e0e0e0;
+  border: 3px solid #ecd9e1;
+  border-radius: 6px;
+  box-shadow: rgba(255, 153, 0, 0.687) -5px 5px,
+    rgba(255, 119, 0, 0.25) -10px 10px, rgba(255, 119, 0, 0.15) -15px 15px;
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
 }
 
 .entry img {
@@ -54,15 +92,58 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
+ 
 @media (max-width: 900px) {
+
+  .projectTitle {
+    font-size: 2.3rem;
+  }
+
+  .guestbookForm {
+    justify-content: center;
+  }
+
   .allGuestbookEntriesContainer {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .entry{
+    width: 100%;
   }
 }
 
 @media (max-width: 600px) {
+   .projectTitle {
+    font-size: 1.7rem;
+    padding: 0 10px;
+  }
+
+  .guestbookForm {
+    flex-direction: column;
+    align-items: justify;
+    padding: 10px;
+  }
+
+  .guestbookForm input {
+    width: 100%;
+  }
+
+  .submitYourGuestbookEntry {
+    width: 100%;
+  }
+
   .allGuestbookEntriesContainer {
     grid-template-columns: 1fr;
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .entry {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .entry img {
+    max-height: 400px;
   }
 }
