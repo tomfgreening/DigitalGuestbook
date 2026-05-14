@@ -72,12 +72,16 @@ body {
 
 .entry {
   background: #ffffff;
+  opacity: 95%;
   display: flex;
   flex-direction: column;
-  border: 3px solid #d9e2ec;
+  border: 3px solid #ecd9e1;
   border-radius: 6px;
   box-shadow: rgba(255, 153, 0, 0.687) -5px 5px,
     rgba(255, 119, 0, 0.25) -10px 10px, rgba(255, 119, 0, 0.15) -15px 15px;
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
 }
 
 .entry img {
@@ -85,7 +89,7 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
+ 
 @media (max-width: 900px) {
   .allGuestbookEntriesContainer {
     grid-template-columns: repeat(2, 1fr);
