@@ -72,6 +72,8 @@ body {
 .customErrorMessage{
     display: none;
     color: white;
+    opacity: 90%;
+    text-align: center ;
     background-color: crimson;
     padding: 12px;
     border-radius: 8px;
