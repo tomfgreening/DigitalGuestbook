@@ -29,9 +29,10 @@ async function handleSubmit(event) {
   const { data, error } = await supabase.storage
     .from("guestbookimagebucket")
     .upload(filePath, imageFile);
+    const errorMessage = document.getElementById("customErrorMessage");
   if (error) {
-    console.error("Upload failed, please try again:", error);
-    return;
+    return (
+      errorMessage.style.display="block")
   }
   const imageUrl = supabase.storage
     .from("guestbookimagebucket")
