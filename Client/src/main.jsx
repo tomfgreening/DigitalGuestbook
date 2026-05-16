@@ -80,7 +80,9 @@ async function getGuestbookEntries() {
       " " +
       item.country +
       "says, " +
-      item.your_message;
+      item.your_message +
+      " " +
+      item.date;
     // put each item into the created div.
     itemDiv.appendChild(itemImg);
     // append the created image element to the item div.
