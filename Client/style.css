@@ -104,7 +104,7 @@ body {
   .projectTitle {
     font-size: 2.3rem;
   }
-
+  
   .guestbookForm {
     justify-content: center;
   }
@@ -118,6 +118,28 @@ body {
   }
 }
 
+@media (max-width: 1024px) {
+
+  .projectTitle {
+    font-size: 2.5rem;
+  }
+
+  .guestbookForm {
+    justify-content: center;
+    padding: 15px;
+  }
+
+  .allGuestbookEntriesContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    padding: 20px;
+  }
+
+  .entry {
+    width: 100%;
+  }
+}
+
 @media (max-width: 600px) {
    .projectTitle {
     font-size: 1.7rem;
@@ -126,7 +148,7 @@ body {
 
   .guestbookForm {
     flex-direction: column;
-    align-items: justify;
+    align-items: stretch;
     padding: 10px;
   }
 
