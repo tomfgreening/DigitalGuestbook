@@ -31,9 +31,13 @@ async function handleSubmit(event) {
     .upload(filePath, imageFile);
     const errorMessage = document.getElementById("customErrorMessage");
   if (error) {
-    return (
-      errorMessage.style.display="block")
+    console.error("Upload failed, please try again.", error);
+    errorMessage.style.display="block";
+      setTimeout(() => {
+        errorMessage.style.display="none"; }, 5000);
+        return;
   }
+
   const imageUrl = supabase.storage
     .from("guestbookimagebucket")
     .getPublicUrl(data.path).data.publicUrl;
