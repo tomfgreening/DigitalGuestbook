@@ -73,6 +73,8 @@ async function getGuestbookEntries() {
     // the funtion will add a CSS class.
     itemImg.src = item.photo_url;
     //the source of the image element will come from the photo_url.
+    const cleanDate = new Date(item.date).toLocaleDateString();
+    // create a new object with a clean date dsiplay. ^ Removes time from date display DD/MM/YYY.
     itemDiv.textContent =
       item.name +
       ", " +
@@ -80,7 +82,9 @@ async function getGuestbookEntries() {
       " " +
       item.country +
       "says, " +
-      item.your_message;
+      item.your_message +
+      " " +
+     cleanDate
     // put each item into the created div.
     itemDiv.appendChild(itemImg);
     // append the created image element to the item div.
