@@ -16,9 +16,9 @@ body {
   margin: 20px 0;
   font-family: "Playfair Display", serif;
   font-weight: 700;
-  text-shadow: 2px 2px 8px rgba(66, 39, 25, 0.4);
+  text-shadow: 1px 1px 1px rgba(66, 39, 25, 0.4);
   letter-spacing: 1px;
-  color: #ffd166;
+  color: #ee6e05;
   opacity: 99%;
   font-size: 3rem;
 }
@@ -104,7 +104,7 @@ body {
   .projectTitle {
     font-size: 2.3rem;
   }
-  
+
   .guestbookForm {
     justify-content: center;
   }
