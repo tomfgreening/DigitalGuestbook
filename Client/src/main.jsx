@@ -29,14 +29,15 @@ async function handleSubmit(event) {
   const { data, error } = await supabase.storage
     .from("guestbookimagebucket")
     .upload(filePath, imageFile);
-    const errorMessage = document.getElementById("customErrorMessage");
+  const errorMessage = document.getElementById("customErrorMessage");
   if (error) {
     console.error("Upload failed, please try again.", error);
-    errorMessage.style.display="block";
-      setTimeout(() => {
-        errorMessage.style.display="none"; }, 5000);
-        return; 
-      }
+    errorMessage.style.display = "block";
+    setTimeout(() => {
+      errorMessage.style.display = "none";
+    }, 5000);
+    return;
+  }
 
   const imageUrl = supabase.storage
     .from("guestbookimagebucket")
@@ -44,19 +45,23 @@ async function handleSubmit(event) {
   // uploading image data to Supabase storage bucket.
   formValues.imageUrl = imageUrl;
   console.log(formValues);
-  
-  //  local host address needs to be changed when deploying project
+
+  //  local host address needs to be changed when deploying project.
   const response = await fetch("http://localhost:8080/newEntry", {
+    // WAIT for new entry to be saved to database.
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(formValues),
   });
+  const successMessage = document.getElementById("customSuccessMessage");
+  successMessage.style.display = "block";
+  setTimeout(() => {
+    successMessage.style.display = "none";
+  }, 5000);
   getGuestbookEntries();
-  alert("Guestbook successfully signed!");
 }
-
 
 async function getGuestbookEntries() {
   const storedGuestbookEntries = await fetch(
@@ -92,7 +97,7 @@ async function getGuestbookEntries() {
       "says, " +
       item.your_message +
       " " +
-     cleanDate
+      cleanDate;
     // put each item into the created div.
     itemDiv.appendChild(itemImg);
     // append the created image element to the item div.
@@ -101,4 +106,3 @@ async function getGuestbookEntries() {
   });
 }
 getGuestbookEntries();
-
