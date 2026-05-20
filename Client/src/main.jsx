@@ -50,17 +50,23 @@ async function handleSubmit(event) {
   const response = await fetch("http://localhost:8080/newEntry", {
     // WAIT for new entry to be saved to database.
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(formValues),
   });
-  const successMessage = document.getElementById("customSuccessMessage");
-  successMessage.style.display = "block";
-  setTimeout(() => {
-    successMessage.style.display = "none";
-  }, 5000);
-  getGuestbookEntries();
+  if (response.ok) {
+    const successMessage = document.getElementById("customSuccessMessage");
+    successMessage.style.display = "block";
+    setTimeout(() => {
+      successMessage.style.display = "none";
+    }, 5000);
+    getGuestbookEntries();
+  } else {
+    errorMessage.style.display = "block";
+    setTimeout(() => {
+      errorMessage.style.display = "none";
+    }, 5000);
+    return;
+  }
 }
 
 async function getGuestbookEntries() {
