@@ -25,7 +25,7 @@ async function handleSubmit(event) {
   const imageFile = formData.get("image");
   // picking out the uploaded image file from the object.
   const filePath = `guestbook/${Date.now()}-${imageFile.name}`;
-  // creating a unique filename for each upload, using the current date and time + the original name fo the file at the time of upload.
+  // creating a unique filename for each upload, using the current date and time + the original name for the file at the time of upload.
   const { data, error } = await supabase.storage
     .from("guestbookimagebucket")
     .upload(filePath, imageFile);
@@ -35,18 +35,16 @@ async function handleSubmit(event) {
     errorMessage.style.display="block";
       setTimeout(() => {
         errorMessage.style.display="none"; }, 5000);
-        return;
-  }
+        return; 
+      }
 
   const imageUrl = supabase.storage
     .from("guestbookimagebucket")
     .getPublicUrl(data.path).data.publicUrl;
   // uploading image data to Supabase storage bucket.
-
   formValues.imageUrl = imageUrl;
   console.log(formValues);
-  alert("Guestbook successfully signed!");
-
+  
   //  local host address needs to be changed when deploying project
   fetch("http://localhost:8080/newEntry", {
     method: "POST",
@@ -55,7 +53,10 @@ async function handleSubmit(event) {
     },
     body: JSON.stringify(formValues),
   });
+  getGuestbookEntries();
+  alert("Guestbook successfully signed!");
 }
+
 
 async function getGuestbookEntries() {
   const storedGuestbookEntries = await fetch(
@@ -64,6 +65,7 @@ async function getGuestbookEntries() {
   console.log(storedGuestbookEntries);
   const guestbookEntriesData = await storedGuestbookEntries.json();
   console.log(guestbookEntriesData);
+  empty(guestbookEntriesData);
   guestbookEntriesData.forEach(function (item) {
     // forEach item in the guestbookEntriesData array, perform a function and assign each entry in the database as 'item'.
     console.log(item);
@@ -98,3 +100,4 @@ async function getGuestbookEntries() {
   });
 }
 getGuestbookEntries();
+
