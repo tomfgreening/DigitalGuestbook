@@ -46,7 +46,7 @@ async function handleSubmit(event) {
   console.log(formValues);
   
   //  local host address needs to be changed when deploying project
-  fetch("http://localhost:8080/newEntry", {
+  const response = await fetch("http://localhost:8080/newEntry", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -65,7 +65,8 @@ async function getGuestbookEntries() {
   console.log(storedGuestbookEntries);
   const guestbookEntriesData = await storedGuestbookEntries.json();
   console.log(guestbookEntriesData);
-  empty(guestbookEntriesData);
+  allGuestbookEntriesContainer.textContent = "";
+  // When calling the function, clear existing entries in the DOM.
   guestbookEntriesData.forEach(function (item) {
     // forEach item in the guestbookEntriesData array, perform a function and assign each entry in the database as 'item'.
     console.log(item);
