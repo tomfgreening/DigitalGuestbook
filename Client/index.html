@@ -17,14 +17,17 @@
         name="name"
         placeholder="What is your name?"
       />
-      <label for="date" id="todaysDateHere" class="todaysDateHere"> Date </label>
-      <input 
-        type="date"
-        id="dateInput" 
-        name="date" 
-        required 
-        />
-      <label for="country" id="countryYouArePostingFromHere" class="countryYouArePostingFromHere"> Place </label>
+      <label for="date" id="todaysDateHere" class="todaysDateHere">
+        Date
+      </label>
+      <input type="date" id="dateInput" name="date" required />
+      <label
+        for="country"
+        id="countryYouArePostingFromHere"
+        class="countryYouArePostingFromHere"
+      >
+        Place
+      </label>
       <input
         type="text"
         id="countryInput"
@@ -32,7 +35,13 @@
         placeholder="Where are you posting from?"
         required
       />
-      <label for="message" id="writeYourMessageHere" class="writeYourMessageHere"> Message </label>
+      <label
+        for="message"
+        id="writeYourMessageHere"
+        class="writeYourMessageHere"
+      >
+        Message
+      </label>
       <input
         type="text"
         id="messageInput"
@@ -40,18 +49,33 @@
         placeholder="Your message here"
         required
       />
-      <label for="image" id="uploadAPhotoHere" class="uploadAPhotoHere"> Image </label>
-      <input 
+      <label for="image" id="uploadAPhotoHere" class="uploadAPhotoHere">
+        Image
+      </label>
+      <input
         type="file"
         id="imageInput"
         name="image"
-        accept="image/jpeg, image/jpg" 
-        />
-      <button type="submit" id="submitYourGuestbookEntry" class="submitYourGuestbookEntry"> Submit </button>
+        accept="image/jpeg, image/jpg"
+      />
+      <button
+        type="submit"
+        id="submitYourGuestbookEntry"
+        class="submitYourGuestbookEntry"
+      >
+        Submit
+      </button>
     </form>
-    <p id="customErrorMessage" class="customErrorMessage">An error occurred, please try again.</p> <p id="customSuccessMessage" class="customSuccessMessage">Thank you for your submission!</p>
-    <div id="allGuestbookEntriesContainer" class="allGuestbookEntriesContainer">
-    </div>
+    <p id="customErrorMessage" class="customErrorMessage">
+      An error occurred, please try again.
+    </p>
+    <p id="customSuccessMessage" class="customSuccessMessage">
+      Thank you for your submission!
+    </p>
+    <div
+      id="allGuestbookEntriesContainer"
+      class="allGuestbookEntriesContainer"
+    ></div>
     <div id="app"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
