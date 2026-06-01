@@ -47,7 +47,7 @@ async function handleSubmit(event) {
   console.log(formValues);
 
   //  local host address needs to be changed when deploying project.
-  const response = await fetch("http://localhost:8080/newEntry", {
+  const response = await fetch("http://around-the-world-in-a-click-server.onrender.com/newEntry", {
     // WAIT for new entry to be saved to database.
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -71,7 +71,7 @@ async function handleSubmit(event) {
 
 async function getGuestbookEntries() {
   const storedGuestbookEntries = await fetch(
-    "http://localhost:8080/guestBookEntries"
+    "http://http://around-the-world-in-a-click-server.onrender.com/guestBookEntries"
   );
   console.log(storedGuestbookEntries);
   const guestbookEntriesData = await storedGuestbookEntries.json();
