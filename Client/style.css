@@ -69,6 +69,30 @@ body {
   box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
 }
 
+.customSuccessMessage {
+  display: none;
+  color: white;
+  opacity: 90%;
+  text-align: center ;
+  background-color: rgb(20, 220, 120);
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.customErrorMessage{
+    display: none;
+    color: white;
+    opacity: 90%;
+    text-align: center ;
+    background-color: crimson;
+    padding: 12px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
 .allGuestbookEntriesContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
